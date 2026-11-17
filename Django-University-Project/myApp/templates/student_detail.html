@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card mb-3">
+    <div class="row g-0">
+        {% if student.image %}
+        <div class="col-md-3">
+            <img src="{{ student.image.url }}" class="img-fluid rounded-start" alt="Photo of {{ student }}">
+        </div>
+        {% endif %}
+        <div class="col">
+            <div class="card-body">
+                <h2 class="card-title">{{ student.firstName|capfirst }} {{ student.lastName|upper }}</h2>
+                <table class="table table-sm w-auto">
+                    <tr><th>Student number</th><td>{{ student.id }}</td></tr>
+                    <tr><th>Age</th><td>{{ student.age }}</td></tr>
+                    <tr><th>Email</th><td>{{ student.email|default:"not provided" }}</td></tr>
+                    <tr><th>Enrolled</th><td>{{ student.enrolmentDate|date:"j F Y" }}</td></tr>
+                </table>
+                <h5>Modules</h5>
+                <ul>
+                    {% for module in student.modules.all %}
+                        <li>{{ module.code|upper }} {{ module.name|title }}</li>
+                    {% empty %}
+                        <li>Not enrolled on any modules</li>
+                    {% endfor %}
+                </ul>
+                <a class="btn btn-primary" href="{% url 'myApp:student_edit' student.id %}">Edit</a>
+                <a class="btn btn-outline-secondary" href="{% url 'myApp:studentlist' 1 %}">Back to list</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,7 @@
+Django
+Pillow
+django-extensions
+django-crispy-forms
+crispy-bootstrap5
+django-filter
+selenium

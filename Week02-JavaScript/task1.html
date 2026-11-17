@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bill Splitter - Task 1</title>
+<link rel="stylesheet" href="styles.css">
+<script src="task1.js"></script></head>
+<body><div class="container">
+<h1>Bill Splitter</h1>
+<nav><a href="task1.html">Task 1</a><a href="task2.html">Task 2</a><a href="task3.html">Task 3</a><a href="Changeling.html">Changeling demo</a></nav>
+
+<label for="billAmount">Total bill amount</label>
+<input id="billAmount" type="text" placeholder="e.g. 85.50">
+
+<label for="tipRate">Tip rate</label>
+<select id="tipRate">
+    <option value="">-- select --</option>
+    <option value="0">0%</option>
+    <option value="5">5%</option>
+    <option value="10">10%</option>
+    <option value="15">15%</option>
+    <option value="20">20%</option>
+</select>
+
+<label for="numPeople">Number of people</label>
+<input id="numPeople" type="text" placeholder="e.g. 4">
+
+<button type="button" id="calculate">Calculate</button>
+
+<div id="errors" class="error-box" style="display:none"></div>
+<div id="result" class="result-holder"></div>
+</div></body></html>

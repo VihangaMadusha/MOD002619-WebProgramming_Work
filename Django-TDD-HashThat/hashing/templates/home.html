@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Hash That</title>
+</head>
+<body>
+    <h1>Hash That</h1>
+    <form action="{% url 'hashing:home' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input name="submit" type="submit" value="Hash">
+    </form>
+
+    <h2 id="quickhash"></h2>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        // Only the answer for the LATEST keystroke is shown (requests can arrive out of order)
+        let latestRequest = 0;
+        $('#id_text').keyup(function () {
+            latestRequest++;
+            var thisRequest = latestRequest;
+            var text = $(this).val();
+
+            $.ajax({
+                url: '{% url "hashing:quickhash" %}',
+                data: { 'text': text },
+                dataType: 'json',
+                success: function (data) {
+                    if (thisRequest == latestRequest) {
+                        $('#quickhash').text(data['hash']);
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

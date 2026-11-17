@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="px-4 py-5 my-5 text-center">
+    <img class="d-block mx-auto mb-4 img-fluid" src="{% static 'myApp/aru.jpg' %}" alt="University campus" width="1000">
+    <h1 class="display-5 fw-bold text-body-emphasis">Web Programming</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">A simple example application for the Web Programming module built by Vihanga Masdusha.</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <button type="button" class="btn btn-primary btn-lg px-4 gap-3"
+                    onclick="location.href='{% url 'myApp:studentlist' 1 %}'">Students</button>
+            <button type="button" class="btn btn-outline-secondary btn-lg px-4"
+                    onclick="location.href='{% url 'myApp:modulelist' %}'">Modules</button>
+        </div>
+    </div>
+</div>
+{% endblock %}

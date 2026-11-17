@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h2>Edit student</h2>
+<!-- enctype is REQUIRED for the image upload to work -->
+<form action="{% url 'myApp:student_edit' student_id %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ studentForm|crispy }}
+    <input type="submit" class="btn btn-primary" value="Edit Student">
+    <a class="btn btn-outline-secondary" href="{% url 'myApp:student_detail' student_id %}">Cancel</a>
+</form>
+{% endblock %}

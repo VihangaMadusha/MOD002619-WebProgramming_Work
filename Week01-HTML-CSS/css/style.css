@@ -1,0 +1,117 @@
+/* Vihanga's Web Studio - plain CSS only (no JavaScript, no frameworks) */
+:root {
+    --primary: #1f4e8c;
+    --dark: #12263f;
+    --light: #eaf1fb;
+    --accent: #f2b134;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #222;
+    background: #fff;
+    line-height: 1.5;
+}
+
+/* ---------- Header ---------- */
+.header {
+    background: var(--primary);
+    color: #fff;
+    text-align: center;
+    padding: 30px 15px;
+}
+.header h1 { margin: 0 0 5px; font-size: 2.2rem; }
+.header p  { margin: 0; opacity: .9; }
+
+/* ---------- Navigation bar (W3Schools: CSS Navigation Bars) ---------- */
+.navbar {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: var(--dark);
+}
+.navbar li { float: left; }
+.navbar li a {
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+.navbar li a:hover { background: var(--accent); color: #000; }
+.navbar li a.active { background: var(--primary); }
+.navbar li.right { float: right; }
+
+/* ---------- Columns (W3Schools: Web Site Layout) ---------- */
+.row::after { content: ""; display: table; clear: both; }
+
+.column { float: left; padding: 15px; }
+.column.side   { width: 25%; background: var(--light); }
+.column.middle { width: 50%; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 15px;
+    background: #fff;
+}
+.card h3 { margin-top: 0; color: var(--primary); }
+
+/* ---------- Gallery ---------- */
+.gallery { display: flex; flex-wrap: wrap; gap: 15px; padding: 15px; }
+.gallery figure { flex: 1 1 250px; margin: 0; }
+.gallery figcaption { text-align: center; font-size: .9rem; padding-top: 5px; }
+
+/* ---------- Contact table / form (page 2, no JS) ---------- */
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+th { background: var(--primary); color: #fff; }
+tr:nth-child(even) { background: #f6f6f6; }
+
+form label { display: block; margin-top: 10px; font-weight: bold; }
+form input, form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+}
+form button {
+    margin-top: 12px;
+    background: var(--primary);
+    color: #fff;
+    border: 0;
+    padding: 10px 18px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+    background: var(--dark);
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    clear: both;
+}
+
+/* ---------- Responsive design (W3Schools: Responsive Web Design) ---------- */
+/* Tablet: side columns drop under the middle column */
+@media screen and (max-width: 900px) {
+    .column.side   { width: 50%; }
+    .column.middle { width: 100%; }
+}
+
+/* Phone: everything stacks, nav becomes vertical */
+@media screen and (max-width: 600px) {
+    .column.side, .column.middle { width: 100%; }
+    .navbar li, .navbar li.right { float: none; }
+    .header h1 { font-size: 1.6rem; }
+}
